@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- Viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <!-- SEO Meta Tags-->
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="subject" content="communication">
+        <meta name="copyright" content="frontendmatters">
+         <meta name="revised" content="" />
+        <title>Vooo Chat</title>
+        <!-- Favicon and Touch Icons-->
+        <link rel="shortcut icon" href="../../assets/media/logo.svg" />
+    
+        <meta name="msapplication-TileColor" content="#da532c">
+    
+        <link rel="stylesheet" href="../../assets/webfonts/inter/inter.css"> 
+        <link rel="stylesheet" href="../../assets/css/app.min.css">
+        <link rel="stylesheet" href="../../assets/css/style-otp.css">
+
+    </head>
+
+<body class="authentication-page">
+
+    <!-- Main Layout Start -->
+    <div class="main-layout card-bg-1">
+        <div class="container d-flex flex-column">
+            <div class="row no-gutters text-center align-items-center justify-content-center min-vh-100">
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                    <img src="../../assets/media/logo-login.svg" class="login-logo mb-3">
+                    <h1 class="font-weight-bold">OTP Code</h1>
+                    <p class="text-dark mb-3">Enter Verification code that sent to your email
+                        <br/>
+                        <span class="bold"> Ahmed@gmail.com </span> </p>
+                    <form class="mb-3">
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email Address</label>
+                            <form action="" class="mt-5">
+                                <input class="otp" type="text" oninput='digitValidate(this)' onkeyup='tabChange(1)' maxlength=1 >
+                                <input class="otp" type="text" oninput='digitValidate(this)' onkeyup='tabChange(2)' maxlength=1 >
+                                <input class="otp" type="text" oninput='digitValidate(this)' onkeyup='tabChange(3)' maxlength=1 >
+                                <input class="otp" type="text" oninput='digitValidate(this)'onkeyup='tabChange(4)' maxlength=1 >
+                              </form>
+                        </div>
+
+                        <!-- Submit -->
+                        <a href="new-password.html" class="btn btn-lg btn-block btn-primary  text-uppercase font-weight-semibold" type="submit">Verify otp</a>
+                    </form>
+                    <div class="btnGroup">
+                      
+                        <span class="timer">
+                          <span id="counter"></span>
+                        </span>
+                      </div>
+                      <a href="#">Resend</a>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <!-- Main Layout End -->
+  
+
+    <!-- Javascript Files -->
+    <script src="../../assets/js/script-otp.js"></script>
+    <script src="../../assets/vendors/jquery/jquery-3.5.0.min.js"></script>
+    <script src="../../assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/vendors/svg-inject/svg-inject.min.js"></script>
+    <script src="../../assets/js/app.js"></script>
+<script>
+    function countdown() {
+        var seconds = 59;
+        function tick() {
+          var counter = document.getElementById("counter");
+          seconds--;
+          counter.innerHTML =
+            "0:" + (seconds < 10 ? "0" : "") + String(seconds);
+          if (seconds > 0) {
+            setTimeout(tick, 1000);
+          } else {
+            document.getElementById("verifiBtn").innerHTML = `
+                <div class="Btn" id="ResendBtn">
+                    <button type="submit">Resend</button>
+                </div>
+            `;
+            document.getElementById("counter").innerHTML = "";
+          }
+        }
+        tick();
+      }
+      countdown();
+</script>
+</body>
+
+</html>
